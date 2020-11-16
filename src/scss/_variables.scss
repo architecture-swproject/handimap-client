@@ -1,0 +1,47 @@
+// COLORS
+$colors-green: #28ae60;
+$colors-green-light: #8edbae;
+$colors-white: #fff;
+$colors-blue: #2196f3;
+$colors-yellow: #ffd83a;
+$colors-purple: #904e87;
+$colors-material-blue: #3f51b5;
+$colors-orange: #ff9800;
+$colors-red: #f44336;
+$colors-light-gray: #afafaf;
+
+$colors-dark-alpha: #0c0c0dbd;
+$colors-dark: #282c34;
+$colors-light-dark: #323947;
+$colors-text-sub: #afafaf;
+
+$colors-gradient-color-1: #ef949d;
+$colors-gradient-color-2: #9e5087;
+$colors-gradient-color-3: #3d3d84;
+
+$bg-gradient: linear-gradient(
+    10deg,
+    $colors-gradient-color-1 50%,
+    $colors-gradient-color-2 75%,
+    $colors-gradient-color-3 90%
+);
+
+$bg-gradient2: linear-gradient(
+    173deg,
+    #683d84 -10%,
+    #db7299 21%,
+    #efd794 71%);
+
+// NAVBAR
+$navbar-height: 54px;
+$navbar-width: 75px;
+$navbar-content-width: 80%;
+
+// COMMON
+$pc-max-width: 1600px;
+
+// Z-INDEX
+
+$background-z-index: -10;
+$view-z-index: 10;
+$content-spacing: 15px;

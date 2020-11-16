@@ -1,0 +1,134 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    height: $navbar-height;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3d3d8400;
+    transition: 0.3s;
+
+    &.filled {
+        background-color: #3d3d84ff;
+        box-shadow: 0 0 7px #363636;
+        transition: 0.3s;
+    }
+
+    .link-item {
+        font-size: 1rem;
+        color: white;
+    }
+
+    // 사이드 바 활성화 시 커버
+    .navbar-container-cover {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        right: -100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: right 1s, opacity 0.3s;
+        opacity: 0;
+        &.active {
+            right: 0;
+            transition: right 0s, opacity 0.3s;
+            opacity: 1;
+        }
+    }
+
+    // 사이드 바 관련
+    .navbar-content-container {
+        width: $navbar-content-width;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        position: fixed;
+        top: 0;
+        transition: 0.5s;
+        left: -$navbar-content-width;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        &.active {
+            transition: 0.5s;
+            left: 0;
+        }
+
+        .navbar-content-wrapper {
+            margin: 0 20px;
+            padding: 20px 0;
+            &:first-child {
+                margin-top: 20px;
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid #fff;
+            }
+
+            &.user-info-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                .user-info-text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin: 0 10px;
+
+                    .user-info-name {
+                        color: #fff;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                    .user-info-email {
+                        color: #fff;
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+
+            &.menu-container {
+                display: flex;
+                flex-direction: column;
+
+                .menu-link-item:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+
+            &.club-list-container {
+                .club-list-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: flex-start;
+                    align-content: center;
+
+                    .club-list-title {
+                        color: $colors-white;
+                        font-weight: 400;
+                        font-size: 1rem;
+                        margin: 5px 0;
+                    }
+                    .club-list {
+                        .club-list-item {
+                            margin-left: 10px;
+                            font-weight: 100;
+                            &:not(:last-child) {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
