@@ -1,12 +1,12 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_SUCCESS, LOGOUT_ERROR, USER_SUCCESS, USER_ERROR, BEFORE_STATE } from './authTypes'
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_SUCCESS, LOGOUT_ERROR, USER_SUCCESS, USER_ERROR, BEFORE_STATE } from '../authtypes'
 import isEmpty from 'lodash/isEmpty';
 
 export const initState = {
     isAuthenticated: false,
     currentUser: {},
     isLoading: false,
-    isLoadingAvatar: false,
-    isUpdatingUser: false,
+    loginError: null,
+    signupError: null,
     authError: null,
     authSuccess: null
 }
@@ -38,7 +38,6 @@ const authReducer = (state = initState, action) => {
           isLoading: false,
           loginError: action.payload,
           signupError: null,
-  
         }
       case LOGOUT_SUCCESS:
         return {

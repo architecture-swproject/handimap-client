@@ -1,6 +1,8 @@
 @import '../../../scss/mixins';
 @import '../../../scss/variables';
 
+
+
 .navbar-container {
     display: flex;
     flex-direction: row;
@@ -12,7 +14,9 @@
     justify-content: space-between;
     background-color: #3d3d8400;
     transition: 0.3s;
-
+    .user{
+        margin: 8px;
+    }
     &.filled {
         background-color: #3d3d84ff;
         box-shadow: 0 0 7px #363636;

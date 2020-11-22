@@ -7,4 +7,4 @@ export const LOGOUT_ERROR = "LOGOUT_ERROR"
 export const USER_SUCCESS = "USER_SUCCESS"
 export const USER_ERROR = "USER_ERROR"
 
-export const BEFORE_STATE = "BEFORE_STATEs"
+export const BEFORE_STATE = "BEFORE_STATE"

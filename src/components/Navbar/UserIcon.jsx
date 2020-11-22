@@ -14,8 +14,9 @@ const UserIconPlaceholder = () => {
 };
 
 const UserIcon = ({ size = 25, className = '', imgUrl = '' }) => {
-    const { info } = useSelector((state) => state.user);
-    const IconLink = info.data !== null && info.data !== undefined ? '/login' : '/modity';
+    // const { info } = useSelector((state) => state.user);
+    // const IconLink = info.data !== null && info.data !== undefined ? '/login' : '/modity';
+    const IconLink = '/login';
 
     return (
         <Link

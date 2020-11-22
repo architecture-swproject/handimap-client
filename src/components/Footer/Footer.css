@@ -1,0 +1,22 @@
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #050046;
+    justify-content: space-between;
+    display: flex !important;
+}
+
+.footer-contents{
+    font-size: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration:none !important;
+    color: white !important;
+}
+

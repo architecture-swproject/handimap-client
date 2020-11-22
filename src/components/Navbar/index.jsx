@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useSelector} from 'react-redux';
 import './scss/Navbar.scss';
 import AnimatedMenuIcon from './AnimatedMenuIcon';
 import { useHistory } from 'react-router-dom';
@@ -11,6 +12,7 @@ export const Navbar = (props) => {
     const history = useHistory();
     const [menuOpened, setMenuOpened] = useState(false);
     const [isTransparent, setIsTransparent] = useState(true);
+    const user = useSelector((state) => state.Auth.currentUser);
 
     const NAVBAR_SCROLL_THRESHOLD = 60;
 
@@ -35,7 +37,7 @@ export const Navbar = (props) => {
             {/* <Link to="/">
                 <Logo color={LOGO_COLOR_PRESETS.YELLOW} weight={5} />
             </Link> */}
-            <UserIcon />
+            <div className="user">{user.username}</div>
             <SideMenu isOpened={menuOpened} />
             <div
                 // onClick={() => setMenuOpened(false)}

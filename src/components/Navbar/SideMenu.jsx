@@ -5,7 +5,6 @@ import CircleFramedImage from '../CircleFramedImage';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserInfo } from '../../modules/User';
 import { isNullOrUndefined } from 'core-util-is';
 import SocialConnectLink from './SocialConnectLink';
 
@@ -42,13 +41,13 @@ const InterestClubsList = (props) => {
 };
 
 const SideMenu = (props) => {
-    const { info } = useSelector((state) => state.user);
+    const { currentUser } = useSelector((state) => state.Auth);
     const dispatch = useDispatch();
 
     const fn = {
         user: {
             fetch: () => {
-                dispatch(getUserInfo());
+                dispatch();
             },
         },
     };
@@ -64,35 +63,26 @@ const SideMenu = (props) => {
             <div className="user-info-container navbar-content-wrapper">
                 <CircleFramedImage
                     imgUrl={
-                        isNullOrUndefined(info.data) || isNullOrUndefined(info.data.user_profile)
-                            ? ''
-                            : info.data.user_profile.profile
+                        ''
                     }
                     imgAlt={
-                        isNullOrUndefined(info.data)
-                            ? '미 로그인 유저 이미지'
-                            : `${info.data.user.username} 프로필 이미지`
+                            '미 로그인 유저 이미지'
                     }
                     width={50}
                     height={50}
                 />
                 <div className="user-info-text">
-                    {!isNullOrUndefined(info.data) ? (
-                        <>
-                            <p className="user-info-name">{info.data.user.username}</p>
-                            <p className="user-info-email">{info.data.user.email}</p>
-                        </>
-                    ) : (
-                        <p className="user-info-name">로그인이 필요합니다</p>
-                    )}
+                <p className="user-info-name">{currentUser.username}</p>
                 </div>
             </div>
             <div className="menu-container  navbar-content-wrapper">
                 <Link className="menu-link-item" to="/">
                     메인화면
                 </Link>
+                <Link className="menu-link-item" to="/search">
+                    검색
+                </Link>
             </div>
-            <InterestClubsList data={info.data} />
         </div>
     );
 };
