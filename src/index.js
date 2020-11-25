@@ -42,7 +42,8 @@ ReactDOM.render(
                             <Route path="/login" component={LoginView}></Route>
                             <Route path="/search" component={SearchView}></Route>
                             <Route path="/carrier" component={CarrierView}></Route>
-                            <Route path="/map" component={MapView}></Route>
+                            <Route path="/map/cross" component={MapView}></Route>
+                            <Route path="/map/elev" component={MapView}></Route>
                             <Route exact path="/" component={MainView}></Route>
                         </Switch>
                     </BackGround>

@@ -12,7 +12,8 @@ const CarrierView = () => {
         name:"",
         mobil:"",
         weight:0,
-        size: "",
+        width: 0,
+        length: 0,
     });
     const dispatch = useDispatch();
     const car = useSelector(state => state.Car)
@@ -34,7 +35,8 @@ const CarrierView = () => {
             carrier_nm: carrier.name,
             type: carrier.mobil,
             weight: carrier.weight,
-            size: carrier.size,
+            width: carrier.width,
+            length: carrier.length,
         });
       };
       console.log(carrier)
@@ -66,7 +68,10 @@ const CarrierView = () => {
                     <input type="weight" name="weight" placeholder="weight" onChange={handleChange}/>
                 </form>
                 <form>
-                    <input type="size" name="size" placeholder="size" onChange={handleChange}/>
+                    <input type="width" name="width" placeholder="width" onChange={handleChange}/>
+                </form>
+                <form>
+                    <input type="length" name="length" placeholder="length" onChange={handleChange}/>
                 </form>
                 <button type = "submit" >submit</button>
             </form>

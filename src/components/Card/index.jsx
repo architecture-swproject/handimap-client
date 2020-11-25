@@ -5,25 +5,38 @@ const Card = ({item, type}) => {
     let history = useHistory();
 
     const handleClick = () => {
-
-        history.push(
-            "/map",
-            {
-                id: item.id,
-                type: type,
-                item: item,
-            }
-        )
-        console.log("card click")
+        if (type === "elev"){
+            history.push(
+                `/map/${type}`,
+                {
+                    id: item.id,
+                    type: type,
+                    item: item,
+                    x: item.x,
+                    y: item.y,
+                }
+            )
+        } else {
+            history.push(
+                `/map/${type}`,
+                {
+                    id: item.id,
+                    type: type,
+                    item: item,
+                    x: item.longitude,
+                    y: item.latitude,
+                }
+            )
+        }
     }
 
     if(type === "elev"){
         return <>
             <div className="__card" onClick= {handleClick}>
                 <div >
-                    <div>{item.buldNm}</div>
-                    <div>{item.address1}</div>
-                    <div>{item.address2}</div>
+                    <div>{item.place_name}</div>
+                    <div>{item.address_name}</div>
+                    <div>{item.category_name}</div>
                 </div>
 
             </div>
