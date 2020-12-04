@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-
+import { Label, Input, FormGroup, Button, Card, CardHeader, CardBody } from "reactstrap";
 import "./Auth.css";
 import { SignIn } from "../../store/modules/auth/actions/authAction";
 import Logo from "../../components/Logo";
@@ -62,9 +62,9 @@ const Login = () => {
                 ""
               )}
             </div>
-            <form>
-              <label>username</label>
-              <input
+            <FormGroup>
+              <Label>username</Label>
+              <Input
                 type="username"
                 name="username"
                 placeholder="Enter username"
@@ -86,10 +86,10 @@ const Login = () => {
               ) : (
                 ""
               )}
-            </form>
-            <form>
-              <label>Password</label>
-              <input
+            </FormGroup>
+            <FormGroup>
+              <Label>Password</Label>
+              <Input
                 type="password"
                 name="password"
                 placeholder="Enter password"
@@ -119,21 +119,21 @@ const Login = () => {
               ) : (
                 ""
               )}
-            </form>
+            </FormGroup>
 
             {currentState.isLoading ? (
-              <button color="primary" type="submit" block disabled>
+              <Button color="primary" type="submit" block disabled>
                 Login...
-              </button>
+              </Button>
             ) : (
-              <button
+              <Button
                 color="primary"
                 type="submit"
                 block
                 disabled={user.username === "" || user.password === ""}
               >
                 Login
-              </button>
+              </Button>
             )}
           </form>
           <div

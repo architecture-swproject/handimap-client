@@ -5,6 +5,7 @@ import Logo from "../../components/Logo";
 import SizedBox from "../../components/SizedBox";
 import WheelChair from "../../components/WheelChair";
 import { CarCreateAPI, CarAPI } from "../../store/modules/carrier/actions/carAction";
+import { Label, Input, FormGroup, Button, Card, CardHeader, CardBody } from "reactstrap";
 
 import './carrier.css'
 const CarrierView = () => {
@@ -19,7 +20,9 @@ const CarrierView = () => {
     const car = useSelector(state => state.Car)
     const carCreate = (inform) => dispatch(CarCreateAPI(inform));
 
-    useEffect(()=> dispatch(CarAPI()), [])
+    useEffect(()=> {
+        dispatch(CarAPI())
+    }, [])
     const handleChange = (e) => {
         setCarrier({
             ...carrier,
@@ -58,22 +61,27 @@ const CarrierView = () => {
             </div>
             <SizedBox height="12px" />
             <form className="card" onSubmit={submitCar}>
-                <form>
-                    <input type="name" name="name" placeholder="name" onChange={handleChange}/>
-                </form>
-                <form>
-                    <input type="mobil" name="mobil" placeholder="mobil" onChange={handleChange}/>
-                </form>
-                <form>
-                    <input type="weight" name="weight" placeholder="weight" onChange={handleChange}/>
-                </form>
-                <form>
-                    <input type="width" name="width" placeholder="width" onChange={handleChange}/>
-                </form>
-                <form>
-                    <input type="length" name="length" placeholder="length" onChange={handleChange}/>
-                </form>
-                <button type = "submit" >submit</button>
+                <FormGroup>
+                    <Label>이름</Label>
+                    <Input type="name" name="name" placeholder="이름" onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>탈 것 종류</Label>
+                    <Input type="mobil" name="mobil" placeholder="탈 것 종류" onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>무게/kg</Label>
+                    <Input type="weight" name="weight" placeholder="무게/kg" onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>넓이</Label>
+                    <Input type="width" name="width" placeholder="넓이" onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>길이</Label>
+                    <Input type="length" name="length" placeholder="길이" onChange={handleChange}/>
+                </FormGroup>
+                <Button color="primary" type = "submit" >제출</Button>
             </form>
         </div>
     </>

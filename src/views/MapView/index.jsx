@@ -58,7 +58,7 @@ const MapView = () => {
             reviewsAPI(item.id, type);
         } else {
             elevAPI(item.place_name);
-            if(elev.data){
+            if(elev.data && elev.data.length > 0){
                 reviewsAPI(elev.data[pk-1].id, type)
                 
                 setCap(elev.data[pk-1].ratedCap.slice(0,2))
@@ -85,7 +85,7 @@ const MapView = () => {
         if(type === "elev"){
             iwContent = `<div style = "padding:5px;height:100%;">장소명: ${item.place_name}<br>주소: ${item.address_name}<br> </div>`;
             if(elev.data){
-                iwContent = `<div style = "top:0;padding:5px;height:100%;overflow:auto;width:100%;background-color:white;border-color:rgb(118, 129, 168);border-style:solid;border-width:2px">장소명: ${item.place_name}<br>주소: ${item.address_name}<br>${elev.data.map((item,i) => `<div id="select${i+1}" style="display:inline; font-size:20px">${i+1} 호</div>`)} </div>`;
+                iwContent = `<div style = "max-width:250px;top:0;padding:5px;height:100%;overflow:auto;width:100%;background-color:white;border-color:rgb(118, 129, 168);border-style:solid;border-width:2px">장소명: ${item.place_name}<br>주소: ${item.address_name}<br>${elev.data.map((item,i) => `<div id="select${i+1}" style="display:inline; font-size:20px">${i+1} 호</div>`)} </div>`;
             }
         } else if(type==="cross"){
             iwContent = `<div style="padding:5px;">장소명: ${item.ovrpsNm}<br>편의시설: ${item.handicapCvntlType}<br>별 개수: ${item.star_num}</div>`;

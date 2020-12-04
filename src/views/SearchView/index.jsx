@@ -8,6 +8,8 @@ import Logo from '../../components/Logo';
 import {options} from "./sigungu"
 import CardList from '../../components/CardList';
 import AddrAPI from '../../store/modules/addr/actions/addrAction';
+import { Label, Input, FormGroup, Button, Card, CardHeader, CardBody } from "reactstrap";
+
 
 const SearchView = () => {
     const [param, setParam] = useState({
@@ -49,20 +51,13 @@ const SearchView = () => {
             </div>
             <SizedBox height="1vh" />
             <form onSubmit={handleSubmit}>
-                <select style = {{display:"block"}}name="type" value = {param.type} onChange={handleChange}>
+                <select style = {{display:"block", marginBottom: "5px"}}name="type" value = {param.type} onChange={handleChange}>
                     <option value="elev">엘레베이터</option>
                     <option value="cross">육교</option>
                 </select>
-                <input type="search" name="sch" placeholder="search" onChange={handleChange}/>
+                <Input type="search" name="sch" placeholder="검색" onChange={handleChange}/>
                 
-                {/* {
-                    param.type === "elev" 
-                        ? <select name="sigungu" value= {param.sigungu} onChange = {handleChange}>{options.map((option)=>(
-                            <option value={option.value}>{option.label}</option>
-                        ))}</select>:
-                        <div></div>
-                } */}
-                <button style={{display:"block"}}>검색</button>
+                <Button color="primary" style={{display:"block", marginTop:"5px"}}>검색</Button>
             </form>
             {param.type === "elev" ? addr.documents ?<CardList items={addr.documents} type={param.type}/> : <div></div>:
               cross.data ?<CardList items={cross.data} type={param.type} /> : <div></div>}
